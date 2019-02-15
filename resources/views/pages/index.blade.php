@@ -5,6 +5,6 @@
     <h1>INDEX</h1>
     <p>landingpage</p>
     
-    <idea-form-component></idea-form-component>
+    <idea-form-component></idea-form-component>   
 </div>
 @endsection

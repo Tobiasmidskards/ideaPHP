@@ -32,8 +32,6 @@
             {{-- Meddelelser (success/errors) vises i toppen af containeren --}}
             @include('inc.messages')
 
-            
-
             {{-- Yield, leder efter en section med navnet 'content' --}}
             @yield('content')
             

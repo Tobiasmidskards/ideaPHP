@@ -13,10 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::resource('ideas', 'IdeasController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::resource('idea', 'IdeaController');
 

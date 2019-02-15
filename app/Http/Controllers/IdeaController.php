@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ideas;
+use App\Idea;
 
-class IdeasController extends Controller
+class IdeaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class IdeasController extends Controller
      */
     public function index()
     {
-       
+        //
     }
 
     /**
@@ -35,7 +35,19 @@ class IdeasController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        // Create Idea
+        $idea = new Idea;
+        $idea->title = $request->input('title');
+        $idea->body = $request->input('body');
+        //$idea->user_id = auth()->user()->id;
+
+        $idea->save();
+        return (['message' => 'Successfully uploaded to database']);
     }
 
     /**

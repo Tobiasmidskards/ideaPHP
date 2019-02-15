@@ -4,9 +4,12 @@
             <div class="card-header">Idea Form</div>
 
             <div class="card-body">
-                <form @submit.prevent="addIdea" method="POST" action="">
+                <form @submit.prevent="addIdea()">
                     <div class="form-group">
                         <input type="text" name="title" v-model="title" placeholder="Idea Title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="body" v-model="body" placeholder="Idea body" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Add idea" class="btn btn-info">
@@ -22,16 +25,25 @@ export default {
 
     data(){
         return {
-            title:''
+            title:'',
+            body:''
         }
     },
     mounted() {
         console.log('Component mounted')
     },
+
     methods:{
         addIdea(){
-            axios.post('/ideaPHP/api/ideas', {
-                title: this.title
+            axios.post('/ideaPHP/public/api/idea', {
+                title: this.title,
+                body: this.body
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
             });
         }
     }
