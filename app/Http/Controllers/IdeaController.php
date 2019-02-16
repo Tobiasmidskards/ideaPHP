@@ -14,7 +14,8 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        //
+        $ideas = Idea::all();
+        return view('ideas.index')->with('ideas', $ideas);
     }
 
     /**
@@ -24,7 +25,7 @@ class IdeaController extends Controller
      */
     public function create()
     {
-        //
+        return view('ideas.create');
     }
 
     /**
@@ -58,7 +59,8 @@ class IdeaController extends Controller
      */
     public function show($id)
     {
-        //
+        $idea = Idea::find($id);
+        return view('ideas.show')->with('idea', $idea);
     }
 
     /**
@@ -69,7 +71,9 @@ class IdeaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $idea = Idea::find($id);
+
+        return view('ideas.edit')->with('idea', $idea);
     }
 
     /**
@@ -81,7 +85,17 @@ class IdeaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $idea = Idea::find($id);
+        $idea->title = $request->input('title');
+        $idea->body = $request->input('body');
+
+        $idea->save();
+        return redirect('/ideas')->with('success', 'Idea Updated');
     }
 
     /**
@@ -92,6 +106,9 @@ class IdeaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $idea = Idea::find($id);
+
+        $idea->delete();
+        return redirect('/ideas')->with('success', 'Idea removed');
     }
 }

@@ -18,8 +18,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
+    
 </head>
 <body>
     <div id="app">
@@ -37,9 +36,9 @@
             
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
     <script src="{{ asset('js/app.js') }}"></script>
+      
 
 </body>
 </html>
