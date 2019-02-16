@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'PagesController@index');
+
+Auth::routes();
+
+Route::get('/dashboard', 'dashboardController@index');

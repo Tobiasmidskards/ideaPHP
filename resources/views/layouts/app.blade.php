@@ -1,44 +1,39 @@
-{{-- Layout,
-
-    For at få en ensformet struktureret hjemmeside, bruges denne fil til.
-    Alle undersider 'extends' fra denne side.
-
-    Herunder vil denne template bruges til at importere assets, i form af js, fonts, etc.
-
-    --}}
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ config('app.name') }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>{{ config('app.name') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
 </head>
 <body>
     <div id="app">
-    {{-- Navigationsbar bliver indlæst --}}
-    @include('inc.navbar')
+        {{-- Navigationsbar bliver indlæst --}}
+        @include('inc.navbar')
 
-    {{-- Bootstrap container --}}
+        {{-- Bootstrap container --}}
         <div class="container">
 
-            {{-- Meddelelser (success/errors) vises i toppen af containeren --}}
-            @include('inc.messages')
-
-            {{-- Yield, leder efter en section med navnet 'content' --}}
-            @yield('content')
-            
-        </div>
+                {{-- Meddelelser (success/errors) vises i toppen af containeren --}}
+                @include('inc.messages')
+    
+                {{-- Yield, leder efter en section med navnet 'content' --}}
+                @yield('content')
+                
+            </div>
     </div>
-
-    <script src="{{ asset('js/app.js') }}"></script>
-      
-
 </body>
 </html>
