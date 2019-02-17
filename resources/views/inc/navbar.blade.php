@@ -5,8 +5,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/ideaPHP/public/api/idea">Feed</a>
-      <a class="nav-item nav-link" href="/ideaPHP/public/api/idea/create">Create</a>
+      <a class="nav-item nav-link active" href="/ideaPHP/public/idea">Feed</a>
+      <a class="nav-item nav-link" href="/ideaPHP/public/idea/create">Opret</a>
       </div>
     
     <ul class="navbar-nav ml-auto">

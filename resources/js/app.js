@@ -21,6 +21,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('idea-form-component', require('./components/IdeaForm.vue').default);
+Vue.component('feed-card-component', require('./components/FeedCards.vue').default);
+Vue.component('show-idea-component', require('./components/showIdea.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

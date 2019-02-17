@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
-
 Auth::routes();
 
-Route::get('/dashboard', 'dashboardController@index');
+Route::get('/', 'PagesController@index');
+
+Route::resource('/idea', 'IdeaController');
+
+Route::get('/dashboard', 'DashboardController@index');

@@ -3,20 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Idea;
 
 class IdeaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
-        $ideas = Idea::all();
-        return view('ideas.index')->with('ideas', $ideas);
+        return view('ideas.index');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -59,8 +67,8 @@ class IdeaController extends Controller
      */
     public function show($id)
     {
-        $idea = Idea::find($id);
-        return view('ideas.show')->with('idea', $idea);
+        //$idea = Idea::find($id);
+        return view('ideas.show');//->with('idea', $idea);
     }
 
     /**
